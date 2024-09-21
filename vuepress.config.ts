@@ -61,6 +61,13 @@ export default defineUserConfig({
       downProxy: cloudflarePagesDownProxy(),//如果文件树地址下载比较慢，也可以配置代理
     },
     {
+      mountPath: "/",
+      // 这里使用 fileUrlTreeAnalysis 文件放到对应的文件路径中
+      analysis: fileUrlTreeAnalysis({
+        "/wallhaven图片测试": "https://w.wallhaven.cc/full/l8/wallhaven-l8x1pr.jpg"
+      }),
+    },
+    {
       mountPath: "/huggingface测试",
       analysis: huggingFaceDatasetsAnalysis({
         userName: "Open-Orca",
